@@ -225,15 +225,11 @@ class TestLuptonRgb:
     @pytest.mark.skipif(not HAS_MATPLOTLIB, reason="requires matplotlib")
     def test_make_rgb(self):
         """Test the function that does it all"""
-        satValue = 1000.0
         with tempfile.NamedTemporaryFile(suffix=".png") as temp:
-            red = saturate(self.image_r, satValue)
-            green = saturate(self.image_g, satValue)
-            blue = saturate(self.image_b, satValue)
             lupton_rgb.make_lupton_rgb(
-                red,
-                green,
-                blue,
+                self.image_r,
+                self.image_g,
+                self.image_b,
                 self.min_,
                 self.stretch_,
                 self.Q,
